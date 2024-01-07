@@ -1,0 +1,43 @@
+body{
+  background-color: #ffffff;
+}
+
+
+.shimmer {
+  height: 340px;
+  width: 260px;
+  background-color: rgb(205, 249, 247);
+  border: 1px solid black;
+  margin: 10px;
+}
+.container {
+
+  display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+
+
+.shimmer2-container{
+display: flex;
+justify-content: space-around;
+
+
+}
+
+.shimmer2-text{
+  background-color : #f0f0f0;
+  border: 1px solid red;
+  height: 650px;
+  width: 380px;
+}
+
+.shimmer2-img{
+margin-top: 120px;
+  width: 400px;
+  height: 280px;
+  border: 1px solid red;
+  background-color : #f0f0f0;
+}
