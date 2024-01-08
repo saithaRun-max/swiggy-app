@@ -16,16 +16,16 @@ function Header() {
         <div className="nav-items">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link className="link-tag" to="/">Home</Link>
             </li>
             <li>
-              <Link to="/products">Products</Link>
+              <Link className="link-tag" to="/products">Products</Link>
             </li>
             <li>
-              <Link to="/about">About us</Link>
+              <Link className="link-tag" to="/about">About us</Link>
             </li>
             <li>
-              <Link to="/cart ">Cart</Link>
+              <Link className="link-tag" to="/cart ">Cart</Link>
             </li>
           </ul>
         </div>

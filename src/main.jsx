@@ -20,7 +20,7 @@ export const Main = () => {
   );
 };
 
-export const appRouter = createBrowserRouter([
+export const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
@@ -52,6 +52,6 @@ export const appRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={appRouter} />
+    <RouterProvider  router={AppRouter} />
   </React.StrictMode>
 );
