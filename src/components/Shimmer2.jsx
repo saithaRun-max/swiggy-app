@@ -5,7 +5,6 @@ const Shimmer2 =()=> {
         <div className="shimmer2-container">
             <div className="shimmer2-text"></div>
 
-            <div className="shimmer2-img"></div>
         </div>
     )
 }

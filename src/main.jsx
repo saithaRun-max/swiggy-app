@@ -9,18 +9,23 @@ import About from "./components/About";
 import Error from "./components/Error";
 import Cart from "./components/Cart";
 import RestarentMenu from "./components/RestarentMenu";
+import { Provider} from "react-redux";
+import Store from "./components/utils/store";
+
 
 export const Main = () => {
   return (
     <div>
+      <Provider store={Store}>
       <Header />
       <Outlet />
       <Footer />
+      </Provider>
     </div>
   );
 };
 
-export const appRouter = createBrowserRouter([
+export const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
@@ -52,6 +57,6 @@ export const appRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={appRouter} />
+    <RouterProvider  router={AppRouter} />
   </React.StrictMode>
 );

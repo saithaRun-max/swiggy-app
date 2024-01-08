@@ -1,10 +1,19 @@
+import { useSelector } from "react-redux";
+import Cartlist from "./Cartlist";
 
-const Cart =()=>{
-    return(
-        <>
-        <div className=" cart-card">CART
-        </div>
-        </>
-    )
-}
-export default Cart
+
+const Cart = () => {
+  const store = useSelector((store) => store.cart.items);
+
+  return (
+    <>
+      <div className=" cart-card">
+        {/* cart items - {store.length} */}
+        {store.map((item) => (
+          <Cartlist {...item} key={item.card.info.id} />
+        ))}
+      </div>
+    </>
+  );
+};
+export default Cart;

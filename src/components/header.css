@@ -5,7 +5,6 @@
 }
 
 .container {
-
   max-width: 100%;
   margin: 0 auto;
   padding: 10px;
@@ -23,16 +22,79 @@
   padding: 6px;
 }
 
-#cardImg{
+#cardImg {
   padding: 20px;
   margin: 50px;
   width: 400px;
   height: 280px;
-  border: 3px solid red
+  border: 3px solid red;
 }
 
-.Restarent-Menu{
+.Restarent-Menu {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.gc-img {
+  width: 150px;
+  height: 120px;
+  border-radius: 20px;
+}
+
+.gc-container {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: rgba(76, 0, 130, 0.099);
+  margin-top: 20px;
+  padding: 12px 30px;
+}
+
+.gc-add-btn {
+  background-color: rgba(229, 216, 239, 0.962);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.rm-container {
+  margin: auto;
+  justify-content: center;
+ 
+}
+
+
+.cartlist-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  box-sizing: border-box;
+  height: 150px;
+  width: 90%;
+  background-color: rgba(21, 255, 0, 0.234);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.cartlist-buy-btn{
+  background-color: rgba(137, 43, 226, 0.377);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+}
+.cartlist-remove-btn{
+  background-color: rgba(226, 43, 43, 0.488);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+}
+
+
+.cartlist-btns{
+  flex: 1;
+  justify-items: flex-end;
 }

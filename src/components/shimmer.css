@@ -21,23 +21,17 @@ body{
 
 
 .shimmer2-container{
-display: flex;
-justify-content: space-around;
+
 
 
 }
 
 .shimmer2-text{
-  background-color : #f0f0f0;
-  border: 1px solid red;
+  background-color : rgba(76, 0, 130, 0.125);
+  border-radius: 20px;
+  margin: auto;
   height: 650px;
-  width: 380px;
+  width: 75%;
 }
 
-.shimmer2-img{
-margin-top: 120px;
-  width: 400px;
-  height: 280px;
-  border: 1px solid red;
-  background-color : #f0f0f0;
-}
+
