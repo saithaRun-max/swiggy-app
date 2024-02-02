@@ -63,12 +63,18 @@ const Body = () => {
         </button>
       </div>
       <div className="card-container">
-        {(searchText.length === 0 ? allRestaurents : filterdrestarent).map((restaurent) => {
-          return (
-            <div>
-           <Link to={"/restaurent/" + restaurent.info.id}
-                key={restaurent.info.id} >
-                <RestaurentCard {...restaurent.info} key={restaurent.info.id} />
+        {(searchText.length === 0 ? allRestaurents : filterdrestarent).map(
+          (restaurent) => {
+            return (
+              <div>
+                <Link
+                  to={"/restaurent/" + restaurent.info.id}
+                  key={restaurent.info.id}
+                >
+                  <RestaurentCard
+                    {...restaurent.info}
+                    key={restaurent.info.id}
+                  />
                 </Link>
               </div>
             );
