@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addItem } from "./utils/cartSlice";
 import { IMG_CDN_URL } from "./constants";
-import "./header.css";
+import "./index.css";
 
 
 
@@ -17,14 +17,14 @@ const GroupedCard = (props) => {
   };
   return (
     <>
-      <div className="gc-container">
+      <div className="flex justify-around">
         <div className="">
-          <img className="gc-img" src={IMG_CDN_URL + imageId} />
+          <img className="w-40" src={IMG_CDN_URL + imageId} />
         </div>
-        <div className="details">
+        <div className="">
           <h4>{name}</h4>
           <h4>Price :{price/100}</h4>
-          <button className="gc-add-btn" onClick={() => handleAddItem()}>Add</button>
+          <button className="" onClick={() => handleAddItem()}>Add</button>
         </div>
       </div>
     </>
