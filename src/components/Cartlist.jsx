@@ -11,6 +11,8 @@ const Cartlist = (props) => {
     dispatch(removeItem(dta));
   };
 
+  // console.log(props);
+
   return (
     <div className="cartlist-container">
       <div className="">

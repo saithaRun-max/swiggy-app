@@ -3,9 +3,11 @@ import { IMG_CDN_URL } from "./constants";
 import "./header.css";
 import { useParams } from "react-router-dom";
 import Shimmer2 from "./Shimmer2";
+import Menu from "./Menu";
 
 const RestarentMenu = () => {
-  const [restarent, setRestaurent] = useState(null);
+  const [restarent, setRestaurent] = useState([]);
+  const [menu, setMenu] = useState([]);
   const { resId } = useParams();
 
   useEffect(() => {
@@ -20,49 +22,57 @@ const RestarentMenu = () => {
 
     const json = await data.json();
     setRestaurent(json?.data?.cards[0]?.card?.card?.info);
+    // [0]?.card?.card?.info
+    setMenu(
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
+        ?.card?.itemCards
+    );
+
+    console.log(restarent);
   }
 
   if (!restarent) return <Shimmer2 />;
 
-  console.log(restarent);
-
   const {
     name,
-    id,
     locality,
     areaName,
     city,
     cloudinaryImageId,
     totalRatingsString,
-    cuisines
   } = restarent;
+
   return (
+    // <>{ restaurantMenu.name}</>
     <div>
       <div className="Restarent-Menu">
         <div>
-          <h4>
-            <label>Restarent : </label>
-          </h4>
-          <span>{name}</span>
-          <h4>
-            <label>Id : </label>{" "}
-          </h4>
-          {id} 
-          <h4>
-            <label>Address: </label>
-          </h4>
-          {locality + ", " + areaName + ", " + city} <br />
+          <h4>{name}</h4>
+          <h4>{locality + ", " + areaName + ", " + city}</h4>
           <h5>
             <label>Rattings: </label>
-          </h5>{" "}
+          </h5>
           {totalRatingsString} ⭐⭐⭐⭐⭐🎖️ <br />
-          <h4>Cuisines :</h4> <ul>{cuisines.map((item, index)=> <li>{item}</li>)}</ul>
         </div>
         <div>
-          <img src={IMG_CDN_URL + restarent.cloudinaryImageId} id="cardImg" />
+          <img src={IMG_CDN_URL + cloudinaryImageId} id="cardImg" />
           <br />
         </div>
       </div>
+      <h4>Menu</h4>
+
+      {menu.map((item) => (
+        <Menu {...item} key={item.card.info.id} />
+      ))}
+
+      {/* {
+        ...menu.map((list)=>{<div>
+          <h4>list.card.info.name</h4>
+          <h4>list.card.info.price/100</h4>
+          <button>Add</button>
+          </div>
+        })
+      } */}
     </div>
   );
 };
