@@ -54,7 +54,6 @@ const Body = () => {
             setSearchText(e.target.value);
             const data = filterData(searchText, allRestaurents);
             setFilterdRestaurent(data);
-            
           }}
         />
 
