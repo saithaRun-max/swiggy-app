@@ -6,7 +6,7 @@ const RestaurentCard = (props) => {
   const { name, cloudinaryImageId, cuisines, locality, areaName } = props;
   console.log(props);
   return (
-    <div className=" min-h-80 max-w-60 m-5 mt-6 shadow-xl rounded-lg p-1 ">
+    <div className=" min-h-80 max-w-60 m-5 mt-6 shadow-xl rounded-lg p-1 pb-3 ">
       {
         <img
           className="h-40 w-fit  rounded-lg"
