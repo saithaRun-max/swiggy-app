@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "./utils/cartSlice";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const Menu = (props) => {
   const [list, setList] = useState([props]);
   const dispatch = useDispatch();
+  const uuId = uuidv4();
 
   const handleCart = (data) => {
-    dispatch(addItem(data));
+    // console.log(data.card.info);
+    dispatch(addItem(data.card.info));
   };
   //  <h5>{item.card.info.category}</h5>
   // console.log(list.card.info.name);
@@ -20,8 +24,15 @@ const Menu = (props) => {
             className="flex justify-between  border border-b-2 h-32"
           >
             <div>
-              <h3 className="mt-8 m-3 text-xl text-green-800 font-semibold">{item.card.info.name}</h3>
-              <h4 className=" m-3 font-medium">Rupees :  <span className="text-red-700 font-bold">{item.card.info.price / 100}/-</span></h4>
+              <h3 className="mt-8 m-3 text-xl text-green-800 font-semibold">
+                {item.card.info.name}
+              </h3>
+              <h4 className=" m-3 font-medium">
+                Rupees :{" "}
+                <span className="text-red-700 font-bold">
+                  {item.card.info.price / 100}/-
+                </span>
+              </h4>
             </div>
 
             <div className="mt-10">

@@ -83,9 +83,9 @@ const Body = () => {
       </div>
       <div className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap">
         {(searchText.length === 0 ? allRestaurents : filterdrestarent).map(
-          (restaurent) => {
+          (restaurent, index) => {
             return (
-              <div className="">
+              <div className="" key={index}>
                 <Link
                   to={"/restaurent/" + restaurent.info.id}
                   key={restaurent.info.id}

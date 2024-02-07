@@ -1,6 +1,7 @@
 // import "./shimmer.css";
-
+import { v4 as uuidv4 } from 'uuid';
 const Shimmer = () => {
+  const uId = uuidv4();
   return (
     <>
       <p>
@@ -10,12 +11,18 @@ const Shimmer = () => {
         </a>{" "}
         for further Loading..
       </p>
-      <div className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap">
+    
         {/*  10 divs are created by this  easily*/}
 
         {Array(20)
           .fill("")
           .map((e, index) => (
+            <div
+            className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap"
+            key={index}
+          >
+
+
             <div
               role="status"
               className="space-y-8 animate-pulse mt-20 md:space-y-0 md:space-x-8 rtl:space-x-reverse"
@@ -28,11 +35,13 @@ const Shimmer = () => {
               </div>
               <span className="sr-only">Loading...</span>
             </div>
+
+</div>
+
           ))}
 
-        {/* <div className="shimmer"></div>
-      <div className="shimmer"></div> */}
-      </div>
+       
+      
     </>
   );
 };

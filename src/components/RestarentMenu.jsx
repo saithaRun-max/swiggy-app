@@ -28,7 +28,7 @@ const RestarentMenu = () => {
         ?.card?.itemCards
     );
 
-    console.log(restarent);
+
   }
 
   if (!restarent) return <Shimmer2 />;
@@ -42,7 +42,7 @@ const RestarentMenu = () => {
     totalRatingsString,
     costForTwo,
   } = restarent;
-  console.log(restarent);
+
   return (
     // <>{ restaurantMenu.name}</>
     <div className="mx-32">

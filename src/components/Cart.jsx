@@ -11,7 +11,7 @@ const Cart = () => {
       <div className=" cart-card">
         {/* cart items - {store.length} */}
         {store.map((item) => (
-          <Cartlist {...item} key={item.card.info.id} />
+          <Cartlist {...item} key={item.id} />
         ))}
       </div>
     </>

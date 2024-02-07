@@ -2,13 +2,13 @@ import { useDispatch } from "react-redux";
 import "../index.css";
 import { removeItem } from "./utils/cartSlice";
 
-const Cartlist = (props) => {
-  const { name, price, category, id } = props.card.info;
+const Cartlist = ({ name, price, category, id }) => {
+
 
   const dispatch = useDispatch();
 
-  const deleteItem = (dta) => {
-    dispatch(removeItem(dta));
+  function deleteItem(idNum){
+    dispatch(removeItem(idNum));
   };
 
   // console.log(props);
