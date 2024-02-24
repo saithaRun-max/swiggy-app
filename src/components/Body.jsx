@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import "../index.css";
 import { Link } from "react-router-dom";
+import { Restaurant_List} from "./constants"
 
 function filterData(searchText, restarent) {
   const filterDatas = restarent.filter((res) =>
@@ -20,11 +21,10 @@ const Body = () => {
   useEffect(() => {
     getRestaurants();
   }, []);
-  //https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.2472528&lng=80.1514447&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.2472528&lng=80.1514447&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      Restaurant_List
     );
 
     const json = await data.json();
@@ -43,7 +43,7 @@ const Body = () => {
   return allRestaurents.length === 0 ? (
     <Shimmer />
   ) : (
-    <>
+    <div className="">
       <div className="flex ml-16">
         <input
           className="box-border px-3 placeholder:text-lg placeholder:px-2 h-12 w-3/4 m-6 border border-teal-300  focus:ring-3 focus:outline-none focus:ring-teal-400 focus: rounded-md"
@@ -100,7 +100,7 @@ const Body = () => {
           }
         )}
       </div>
-    </>
+    </div>
   );
 };
 

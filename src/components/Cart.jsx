@@ -6,10 +6,11 @@ const Cart = () => {
 
 // console.log(store);
 
+if(store.length < 1) return "Your cart is empty"
+
   return (
     <>
       <div className=" cart-card">
-        {/* cart items - {store.length} */}
         {store.map((item) => (
           <Cartlist {...item} key={item.id} />
         ))}

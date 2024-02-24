@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { IMG_CDN_URL } from "./constants";
-// import "./header.css";
+import { Menupage_API } from "./constants";
 import { useParams } from "react-router-dom";
 import Shimmer2 from "./Shimmer2";
 import Menu from "./Menu";
@@ -15,20 +15,15 @@ const RestarentMenu = () => {
   }, []);
 
   async function getData() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.2472528&lng=80.1514447&restaurantId=" +
-        resId
-    );
-
+    const data = await fetch(Menupage_API + resId);
     const json = await data.json();
-    setRestaurent(json?.data?.cards[0]?.card?.card?.info);
-    // [0]?.card?.card?.info
+
+    setRestaurent(json?.data?.cards[2]?.card?.card?.info);
+
     setMenu(
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
+      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
         ?.card?.itemCards
     );
-
-
   }
 
   if (!restarent) return <Shimmer2 />;
@@ -44,7 +39,7 @@ const RestarentMenu = () => {
   } = restarent;
 
   return (
-    // <>{ restaurantMenu.name}</>
+    
     <div className="mx-32">
       <div className="flex flex-wrap justify-evenly items-start  m-10 shadow-md">
         <div>

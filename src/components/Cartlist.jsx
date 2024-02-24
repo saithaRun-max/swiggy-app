@@ -12,8 +12,9 @@ const Cartlist = ({ name, price, category, id }) => {
   };
 
   // console.log(props);
+  
 
-  return (
+  return  (
     <div className="flex justify-between rounded-sm shadow-lg  border border-b-2 h-40 items-center mx-14 p-4 m-2">
       <div className="">
         <h4 className="mt-8 m-3 text-lg text-cyan-500 font-semibold">{name}</h4>

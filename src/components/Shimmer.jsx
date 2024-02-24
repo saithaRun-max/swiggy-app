@@ -13,17 +13,18 @@ const Shimmer = () => {
       </p>
     
         {/*  10 divs are created by this  easily*/}
+        <div
+            className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap"
+         
+          >
 
         {Array(20)
           .fill("")
           .map((e, index) => (
+          
+
             <div
-            className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap"
             key={index}
-          >
-
-
-            <div
               role="status"
               className="space-y-8 animate-pulse mt-20 md:space-y-0 md:space-x-8 rtl:space-x-reverse"
             >
@@ -36,11 +37,11 @@ const Shimmer = () => {
               <span className="sr-only">Loading...</span>
             </div>
 
-</div>
+
 
           ))}
 
-       
+</div>
       
     </>
   );

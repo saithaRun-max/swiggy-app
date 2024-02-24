@@ -12,7 +12,7 @@ function Header() {
   const [isLoggedin, setLoggedIn] = useState(false);
   return (
     <>
-      <div className="flex justify-between shadow-lg h-30 w-full items-center">
+      <div className="flex justify-between shadow-lg h-30 w-full items-center bg-white">
         <div className="">
           <img className="w-36 h-32 p-5" src={logo} alt="logo" />
         </div>
@@ -22,9 +22,7 @@ function Header() {
             <li className="ml-4 text-lg font-normal">
               <Link to="/">Home</Link>
             </li>
-            <li className="ml-4 text-lg">
-              <Link to="/products">Products</Link>
-            </li>
+      
             <li className="ml-4 text-lg">
               <Link to="/about">About us</Link>
             </li>
