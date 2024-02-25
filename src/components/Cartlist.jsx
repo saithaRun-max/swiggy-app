@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
-import "../index.css";
 import { removeItem } from "./utils/cartSlice";
 
-const Cartlist = ({ name, price, category, id }) => {
 
+
+const Cartlist = ({ name, price, category, id }) => {
 
   const dispatch = useDispatch();
 
@@ -11,8 +11,6 @@ const Cartlist = ({ name, price, category, id }) => {
     dispatch(removeItem(idNum));
   };
 
-  // console.log(props);
-  
 
   return  (
     <div className="flex justify-between rounded-sm shadow-lg  border border-b-2 h-40 items-center mx-14 p-4 m-2">

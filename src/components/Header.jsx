@@ -4,17 +4,19 @@ import { logo } from "./constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Login from "./Login";
 
 function Header() {
   const cartItem = useSelector((store) => store.cart.items);
 
-  // console.log(cartItem);
-  const [isLoggedin, setLoggedIn] = useState(false);
+  
   return (
     <>
       <div className="flex justify-between shadow-lg h-30 w-full items-center bg-white">
         <div className="">
-          <img className="w-36 h-32 p-5" src={logo} alt="logo" />
+          <Link to="/">
+          <img className=" p-2" src={logo} alt="logo" />
+          </Link>
         </div>
 
         <div className="items-center">
@@ -50,21 +52,8 @@ function Header() {
           </ul>
         </div>
         <div>
-          {!isLoggedin ? (
-            <button
-              className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-3 text-center me-2 mb-2  mt-3"
-              onClick={() => setLoggedIn(true)}
-            >
-              Log In{" "}
-            </button>
-          ) : (
-            <button
-              className="text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 focus:text-sm font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 mt-3"
-              onClick={() => setLoggedIn(false)}
-            >
-              Log Out{" "}
-            </button>
-          )}
+          <Login />
+    
         </div>
       </div>
     </>

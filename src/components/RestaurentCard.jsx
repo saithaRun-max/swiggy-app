@@ -1,5 +1,4 @@
 import React from "react";
-import "../index.css";
 import { IMG_CDN_URL } from "./constants";
 
 const RestaurentCard = (props) => {
@@ -16,7 +15,6 @@ const RestaurentCard = (props) => {
       }
 
       <h4 className="text-lg font-semibold my-3 pl-2">{name}</h4>
-
       <h5 className="text-slate-500 flex pl-2  flex-wrap">
         {cuisines.map((cusine, index) => (
           <h4 className="" key={index}>
