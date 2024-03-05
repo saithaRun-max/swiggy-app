@@ -18,12 +18,14 @@ const RestarentMenu = () => {
     const data = await fetch(Menupage_API + resId);
     const json = await data.json();
 
-    setRestaurent(json?.data?.cards[2]?.card?.card?.info);
-
+    setRestaurent(json?.data?.cards[0]?.card?.card?.info);
     setMenu(
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
+      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
         ?.card?.itemCards
     );
+
+
+
   }
 
   if (!restarent) return <Shimmer2 />;

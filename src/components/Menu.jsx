@@ -31,7 +31,7 @@ const Menu = (props) => {
               <h4 className=" m-3 font-medium">
                 Rupees :{" "}
                 <span className="text-red-700 font-bold">
-                  {item.card.info.price / 100}/-
+                  {(item.card.info.defaultPrice ? item.card.info.defaultPrice : item.card.info.price) / 100 }/-
                 </span>
               </h4>
             </div>
