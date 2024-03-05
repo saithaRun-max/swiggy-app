@@ -2,31 +2,25 @@ import { useState, useEffect } from "react";
 import { IMG_CDN_URL } from "./constants";
 import { Menupage_API } from "./constants";
 import { useParams } from "react-router-dom";
+
 import Shimmer2 from "./Shimmer2";
 import Menu from "./Menu";
+import useGetRestarantMenuData from "../hooks/useGetRestarantMenuData";
+import { useSelector } from "react-redux";
 
 const RestarentMenu = () => {
-  const [restarent, setRestaurent] = useState([]);
-  const [menu, setMenu] = useState([]);
-  const { resId } = useParams();
+  useGetRestarantMenuData();
 
-  useEffect(() => {
-    getData();
-  }, []);
+  const store = useSelector(
+    (store) => store.allRestaurantsData.restaurantMenuInfo
+  );
 
-  async function getData() {
-    const data = await fetch(Menupage_API + resId);
-    const json = await data.json();
+  const store2 = useSelector(
+    (store) => store.allRestaurantsData.restaurantMenuCards
+  );
 
-    setRestaurent(json?.data?.cards[0]?.card?.card?.info);
-    setMenu(
-      json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
-        ?.card?.itemCards
-    );
-
-
-
-  }
+  const restarent = store;
+  const menu = store2;
 
   if (!restarent) return <Shimmer2 />;
 
@@ -41,7 +35,6 @@ const RestarentMenu = () => {
   } = restarent;
 
   return (
-    
     <div className="mx-32">
       <div className="flex flex-wrap justify-evenly items-start  m-10 shadow-md">
         <div>

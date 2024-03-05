@@ -15,8 +15,6 @@ const useGetAllRestaurants = () => {
 
    const result = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
     
-
-
 dispatch(addRestaurants(result))
   }
 };
