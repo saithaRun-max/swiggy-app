@@ -1,43 +1,25 @@
 import RestaurentCard from "./RestaurentCard";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import "../index.css";
 import { Link } from "react-router-dom";
-import { Restaurant_List} from "./constants"
+import useGetAllRestaurants from "../hooks/useGetAllRestaurants";
+import { useSelector } from "react-redux";
+import useFilterData from "../hooks/useFilterData";
 
-function filterData(searchText, restarent) {
-  const filterDatas = restarent.filter((res) =>
-    res?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
-  );
 
-  return filterDatas;
-}
 
 const Body = () => {
-  const [allRestaurents, setAllReataurents] = useState([]);
-  const [filterdrestarent, setFilterdRestaurent] = useState([]);
+  useGetAllRestaurants();
+  const restaurants = useSelector(
+    (store) => store.allRestaurantsData?.allRestaurants
+  );
+
+  const allRestaurents  = restaurants;
+  const [filterdrestarent, setFilterdRestaurent] = useState(restaurants);
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    getRestaurants();
-  }, []);
-
-  async function getRestaurants() {
-    const data = await fetch(
-      Restaurant_List
-    );
-
-    const json = await data.json();
-
-    setAllReataurents(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-
-    setFilterdRestaurent(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  }
-
+  
   if (!allRestaurents) return <h1>Not loaded</h1>;
 
   return allRestaurents.length === 0 ? (
@@ -52,14 +34,14 @@ const Body = () => {
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
-            const data = filterData(searchText, allRestaurents);
+            const data = useFilterData(searchText, allRestaurents);
             setFilterdRestaurent(data);
           }}
         />
 
         <button
           onClick={() => {
-            const data = filterData(searchText, allRestaurents);
+            const data = useFilterData(searchText, allRestaurents);
             setFilterdRestaurent(data);
           }}
           type="submit"

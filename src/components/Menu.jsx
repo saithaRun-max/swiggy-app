@@ -1,21 +1,17 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "./utils/cartSlice";
-import { v4 as uuidv4 } from 'uuid';
-
+import { v4 as uuidv4 } from "uuid";
 
 const Menu = (props) => {
-  //  console.log(props);
   const [list, setList] = useState([props]);
   const dispatch = useDispatch();
   const uuId = uuidv4();
 
   const handleCart = (data) => {
-   
     dispatch(addItem(data.card.info));
   };
- 
-  
+
   return (
     <div>
       {list.map((item, index) => {
@@ -31,7 +27,10 @@ const Menu = (props) => {
               <h4 className=" m-3 font-medium">
                 Rupees :{" "}
                 <span className="text-red-700 font-bold">
-                  {(item.card.info.defaultPrice ? item.card.info.defaultPrice : item.card.info.price) / 100 }/-
+                  {(item.card.info.defaultPrice
+                    ? item.card.info.defaultPrice
+                    : item.card.info.price) / 100}
+                  /-
                 </span>
               </h4>
             </div>

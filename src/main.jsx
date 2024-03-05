@@ -10,7 +10,7 @@ import Error from "./components/Error";
 import Cart from "./components/Cart";
 import RestarentMenu from "./components/RestarentMenu";
 import { Provider} from "react-redux";
-import Store from "./components/utils/store";
+import Store from "./components/utils/Store";
 
 
 export const Main = () => {
