@@ -22,7 +22,7 @@ const useGetRestarantMenuData = () => {
     const itemCards =
       json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
         ?.card?.itemCards;
-
+// console.log(Object.values(itemCards))
     dispatch(addRestaurantMenuInfo(info));
     dispatch(addRestaurantMenuCards(itemCards));
 

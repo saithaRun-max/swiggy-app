@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import useGetAllRestaurants from "../hooks/useGetAllRestaurants";
 import { useSelector } from "react-redux";
 import useFilterData from "../hooks/useFilterData";
+import useGetRestaurantsRapid from "../hooks/useGetRestaurantsRapid";
 
 
 
 const Body = () => {
   useGetAllRestaurants();
+  useGetRestaurantsRapid();
   const restaurants = useSelector(
     (store) => store.allRestaurantsData?.allRestaurants
   );
