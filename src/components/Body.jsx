@@ -6,22 +6,28 @@ import { Link } from "react-router-dom";
 import useGetAllRestaurants from "../hooks/useGetAllRestaurants";
 import { useSelector } from "react-redux";
 import useFilterData from "../hooks/useFilterData";
-import useGetRestaurantsRapid from "../hooks/useGetRestaurantsRapid";
-
-
+import RestarentMenu from "./RestarentMenu";
+import useRestaurantOfflineData from "../hooks/useRestaurantData";
 
 const Body = () => {
-  useGetAllRestaurants();
-  useGetRestaurantsRapid();
-  const restaurants = useSelector(
-    (store) => store.allRestaurantsData?.allRestaurants
-  );
+  // useGetAllRestaurants();
+ 
+  // const restaurants = useSelector(
+  //   (store) => store.allRestaurantsData?.allRestaurants
+  // );
+  // const allRestaurents = restaurants;
+  // const [filterdrestarent, setFilterdRestaurent] = useState(restaurants);
 
-  const allRestaurents  = restaurants;
-  const [filterdrestarent, setFilterdRestaurent] = useState(restaurants);
+  const restaurantsD = useSelector(
+    (store) => store.restaurantsData.restaurants
+  );
+  const allRestaurents = restaurantsD;
+  const [filterdrestarent, setFilterdRestaurent] = useState(restaurantsD);
   const [searchText, setSearchText] = useState("");
 
-  
+
+  RestarentMenu(allRestaurents)
+
   if (!allRestaurents) return <h1>Not loaded</h1>;
 
   return allRestaurents.length === 0 ? (
@@ -68,16 +74,17 @@ const Body = () => {
       <div className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap">
         {(searchText.length === 0 ? allRestaurents : filterdrestarent).map(
           (restaurent, index) => {
+            // console.log(restaurent);
             return (
               <div className="" key={index}>
                 <Link
-                  to={"/restaurent/" + restaurent.info.id}
-                  key={restaurent.info.id}
+                  to={"/restaurent/" + restaurent.id}
+                  key={restaurent.id}
+                  // to={"/restaurent/" + restaurent.info.id}
+                  // key={restaurent.info.id}
                 >
-                  <RestaurentCard
-                    {...restaurent.info}
-                    key={restaurent.info.id}
-                  />
+                  {/* <RestaurentCard {...restaurent.info} /> */}
+                  <RestaurentCard {...restaurent} />
                 </Link>
               </div>
             );

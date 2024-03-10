@@ -2,12 +2,11 @@ import React from "react";
 import { IMG_CDN_URL } from "./constants";
 
 const RestaurentCard = (props) => {
+  
   const { name, cloudinaryImageId, cuisines, locality, areaName } = props;
-
-
- 
- const filteredCusines = cuisines.length < 4 ? cuisines : cuisines.slice(0, 3);
-
+if(!cuisines) return;
+  const filteredCusines = cuisines.length < 4 ? cuisines : cuisines.slice(0, 3);
+  
   return (
     <div className=" min-h-[350px] max-w-60 m-5 mt-6 shadow-xl rounded-lg p-1 pb-3 ">
       {
