@@ -11,22 +11,22 @@ import useRestaurantOfflineData from "../hooks/useRestaurantData";
 
 const Body = () => {
   // useGetAllRestaurants();
- 
+ useRestaurantOfflineData();
   // const restaurants = useSelector(
   //   (store) => store.allRestaurantsData?.allRestaurants
   // );
   // const allRestaurents = restaurants;
   // const [filterdrestarent, setFilterdRestaurent] = useState(restaurants);
 
-  const restaurantsD = useSelector(
+  const restaurants = useSelector(
     (store) => store.restaurantsData.restaurants
   );
-  const allRestaurents = restaurantsD;
-  const [filterdrestarent, setFilterdRestaurent] = useState(restaurantsD);
+  const allRestaurents = restaurants;
+  const [filterdrestarent, setFilterdRestaurent] = useState(restaurants);
   const [searchText, setSearchText] = useState("");
 
 
-  RestarentMenu(allRestaurents)
+  RestarentMenu(allRestaurents);
 
   if (!allRestaurents) return <h1>Not loaded</h1>;
 

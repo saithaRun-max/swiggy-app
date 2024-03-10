@@ -8,7 +8,7 @@ if(!cuisines) return;
   const filteredCusines = cuisines.length < 4 ? cuisines : cuisines.slice(0, 3);
   
   return (
-    <div className=" min-h-[350px] max-w-60 m-5 mt-6 shadow-xl rounded-lg p-1 pb-3 ">
+    <div className=" min-h-[330px] max-w-60 m-5 mt-6 shadow-xl rounded-lg p-1 pb-3 ">
       {
         <img
           className="h-40 w-fit  rounded-lg"

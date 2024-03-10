@@ -5,11 +5,15 @@ import { useParams } from "react-router-dom";
 
 import Shimmer2 from "./Shimmer2";
 import Menu from "./Menu";
-import useGetRestarantMenuData from "../hooks/useGetRestarantMenuData";
+// import useGetRestarantMenuData from "../hooks/useGetRestarantMenuData";
 import { useSelector } from "react-redux";
+import useRestaurantOfflineData from "../hooks/useRestaurantData";
 
 const RestarentMenu = () => {
-  useGetRestarantMenuData();
+  //  useGetRestarantMenuData();
+  useRestaurantOfflineData();
+
+  const { resId } = useParams();
 
   const store = useSelector(
     (store) => store.allRestaurantsData.restaurantMenuInfo
@@ -19,8 +23,17 @@ const RestarentMenu = () => {
     (store) => store.allRestaurantsData.restaurantMenuCards
   );
 
-  const restarent = store;
-  const menu = store2;
+  const res = useSelector((store) => store.restaurantsData.restaurants);
+
+  const filterData = res.filter((item) => item.id == resId);
+  const data = filterData[0];
+  // const restarent = store;
+  // const menu = store2;
+  if (!data) return;
+  const restarent = data;
+  const menu = data.menuCards;
+
+  // console.log(menu[0].id)
 
   if (!restarent) return <Shimmer2 />;
 
@@ -53,7 +66,8 @@ const RestarentMenu = () => {
           </p>
           <p className="my-2 ">{totalRatingsString}</p>
           <p className="font-medium my-2">
-            Cost for Two : {costForTwo / 100}/-
+            {/* Cost for Two : {costForTwo / 100}/- */}
+            Offer: {costForTwo}
           </p>
         </div>
       </div>
@@ -62,8 +76,12 @@ const RestarentMenu = () => {
           Recommended ({menu.length})
         </h4>
 
-        {menu.map((item) => (
+        {/* {menu.map((item) => (
           <Menu {...item} key={item.card.info.id} />
+        ))} */}
+
+        {menu.map((item) => (
+          <Menu {...item} key={item.id} />
         ))}
       </div>
     </div>

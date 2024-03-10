@@ -2,14 +2,17 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "./utils/cartSlice";
 import { v4 as uuidv4 } from "uuid";
+import { addToCart } from "./utils/allRestaurantsDataSlice";
 
 const Menu = (props) => {
   const [list, setList] = useState([props]);
   const dispatch = useDispatch();
   const uuId = uuidv4();
 
+
   const handleCart = (data) => {
-    dispatch(addItem(data.card.info));
+    dispatch(addItem(data));
+    // dispatch(addItem(data.card.info));
   };
 
   return (
@@ -22,6 +25,19 @@ const Menu = (props) => {
           >
             <div>
               <h3 className="mt-8 m-3 text-xl text-green-800 font-semibold">
+                {item.name}
+              </h3>
+              <h4 className=" m-3 font-medium">
+                Rupees :{" "}
+                <span className="text-red-700 font-bold">
+                  {(item.defaultPrice ? item.defaultPrice : item.price) / 100}
+                  /-
+                </span>
+              </h4>
+            </div>
+
+            {/* <div>
+              <h3 className="mt-8 m-3 text-xl text-green-800 font-semibold">
                 {item.card.info.name}
               </h3>
               <h4 className=" m-3 font-medium">
@@ -33,10 +49,10 @@ const Menu = (props) => {
                   /-
                 </span>
               </h4>
-            </div>
+            </div> */}
 
             <div className="mt-10">
-              <button className=" p-2" onClick={() => handleCart(item)}>
+              <button className="p-2" onClick={() => handleCart(item)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

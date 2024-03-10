@@ -4,6 +4,10 @@ import Cartlist from "./Cartlist";
 const Cart = () => {
   const store = useSelector((store) => store.cart?.items);
   
+  // const store = useSelector((store)=> store.restaurantsData.cart);
+
+if(!store) return;
+
   return (
     <>
       <div>
