@@ -14,13 +14,13 @@ const allRestaurantsSlice = createSlice({
     addRestaurantMenuInfo: (state, action) => {
       state.restaurantMenuInfo = action.payload;
     },
-    addRestaurantMenuCards: (state, action) => {
+    addRestaurantMenu: (state, action) => {
       state.restaurantMenuCards = action.payload;
     },
   },
 });
 
-export const { addRestaurants, addRestaurantMenuCards, addRestaurantMenuInfo } =
+export const { addRestaurants, addRestaurantMenu, addRestaurantMenuInfo } =
   allRestaurantsSlice.actions;
 
 export default allRestaurantsSlice.reducer;

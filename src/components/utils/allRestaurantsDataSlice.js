@@ -4,6 +4,7 @@ const allRestaurantsDataSlice = createSlice({
   name: "restaurantsData",
   initialState: {
     restaurants: [],
+    restaurantMenu: [],
     cart: [],
   },
   reducers: {
@@ -13,8 +14,11 @@ const allRestaurantsDataSlice = createSlice({
     addToCart: (state, action) => {
       state.cart = action.payload;
     },
+    addRestaurantMenu: (state, action) =>{
+      state.restaurantMenu = action.payload;
+    }
   },
 });
 
-export const { addResataurants, addToCart } = allRestaurantsDataSlice.actions;
+export const { addResataurants, addToCart, addRestaurantMenu } = allRestaurantsDataSlice.actions;
 export default allRestaurantsDataSlice.reducer;

@@ -25,6 +25,11 @@ const RestarentMenu = () => {
 
   const res = useSelector((store) => store.restaurantsData.restaurants);
 
+//another way
+  // const restauransData = useSelector((store)=> store.restaurantsData.restaurantMenu)
+
+ 
+
   const filterData = res.filter((item) => item.id == resId);
   const data = filterData[0];
   // const restarent = store;
@@ -48,11 +53,11 @@ const RestarentMenu = () => {
   } = restarent;
 
   return (
-    <div className="mx-32">
-      <div className="flex flex-wrap justify-evenly items-start  m-10 shadow-md">
-        <div>
+    <div className="lg:mx-32 sm:mx-28 p-8 ">
+      <div className="flex flex-wrap justify-evenly items-start   my-10 shadow-md sm:m-2 min-w-60">
+        <div className="">
           <img
-            className="h-60 rounded-lg"
+            className="min-h-60  rounded-lg"
             src={IMG_CDN_URL + cloudinaryImageId}
             id="cardImg"
           />
@@ -60,12 +65,12 @@ const RestarentMenu = () => {
         </div>
 
         <div className="flex flex-col justify-between ">
-          <h4 className="text-2xl my-4 font-medium">{name}</h4>
-          <p className="text-base my-2">
+          <h4 className="text-2xl px-2 mt-4 font-medium">{name}</h4>
+          <p className="text-base px-2 my-2">
             {locality + ", " + areaName + ", " + city}
           </p>
           <p className="my-2 ">{totalRatingsString}</p>
-          <p className="font-medium my-2">
+          <p className="font-medium my-2 px-2">
             {/* Cost for Two : {costForTwo / 100}/- */}
             Offer: {costForTwo}
           </p>

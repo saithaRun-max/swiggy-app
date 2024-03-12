@@ -4,14 +4,17 @@ import Shimmer from "./Shimmer";
 import "../index.css";
 import { Link } from "react-router-dom";
 import useGetAllRestaurants from "../hooks/useGetAllRestaurants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useFilterData from "../hooks/useFilterData";
 import RestarentMenu from "./RestarentMenu";
-import useRestaurantOfflineData from "../hooks/useRestaurantData";
+import { addRestaurantMenu } from "./utils/allRestaurantsDataSlice";
+import useRestaurantData from "../hooks/useRestaurantData";
+
 
 const Body = () => {
   // useGetAllRestaurants();
- useRestaurantOfflineData();
+ useRestaurantData();
+ const dispatch = useDispatch();
   // const restaurants = useSelector(
   //   (store) => store.allRestaurantsData?.allRestaurants
   // );
@@ -27,6 +30,12 @@ const Body = () => {
 
 
   RestarentMenu(allRestaurents);
+
+
+  const handleData =(data)=> {
+    dispatch(addRestaurantMenu(data))
+  };
+
 
   if (!allRestaurents) return <h1>Not loaded</h1>;
 
@@ -74,17 +83,17 @@ const Body = () => {
       <div className="mx-2 ml-16 rounded-sm flex  justify-items-start flex-wrap">
         {(searchText.length === 0 ? allRestaurents : filterdrestarent).map(
           (restaurent, index) => {
-            // console.log(restaurent);
+            
             return (
-              <div className="" key={index}>
+              <div key={index}>
                 <Link
                   to={"/restaurent/" + restaurent.id}
-                  key={restaurent.id}
+                  key={restaurent.id} onClick={()=> handleData(restaurent)}
                   // to={"/restaurent/" + restaurent.info.id}
                   // key={restaurent.info.id}
                 >
                   {/* <RestaurentCard {...restaurent.info} /> */}
-                  <RestaurentCard {...restaurent} />
+                  <RestaurentCard  {...restaurent} />
                 </Link>
               </div>
             );

@@ -1,22 +1,20 @@
 import { useDispatch } from "react-redux";
 import { removeItem } from "./utils/cartSlice";
 
-
-
 const Cartlist = ({ name, defaultPrice, price, category, id }) => {
-
   const dispatch = useDispatch();
 
-  function deleteItem(idNum){
+  function deleteItem(idNum) {
     dispatch(removeItem(idNum));
-  };
+  }
 
-
-  return  (
-    <div className="flex justify-between rounded-sm shadow-lg  border border-b-2 h-40 items-center mx-14 p-4 m-2">
+  return (
+    <div className="flex justify-between rounded-sm shadow-lg  border border-b-2 h-40 items-center mx-14 p-4 m-2 mt-6">
       <div className="">
         <h4 className="mt-8 m-3 text-lg text-cyan-500 font-semibold">{name}</h4>
-        <h4 className=" m-3 font-medium">Rupees {(price ? price : defaultPrice) / 100} /-</h4>
+        <h4 className=" m-3 font-medium">
+          Rupees {(price ? price : defaultPrice) / 100} /-
+        </h4>
       </div>
       <div>
         <div className="p-4">
